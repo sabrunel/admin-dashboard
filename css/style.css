@@ -1,0 +1,282 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+body {
+    font-family: system-ui, sans-serif;
+    background-color:rgb(231, 229, 229);
+    color: #1E1A22;;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        'header'
+        'main ';
+    gap: 0.5rem;
+}
+
+/*  COMPONENTS */
+
+li {
+    list-style: none;
+}
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 25px;
+    padding: 0.75rem 2rem;
+    background-color: #1E1A22;
+    font-size: inherit;
+    color: #fff;
+}
+
+input[type=text] {
+    border: none;
+    border-radius: 25px;
+    padding: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1 {
+    font-size: 1.75em;
+}
+
+h2 {
+    font-size: 1.25em;
+    margin-bottom: 0.8rem;
+}
+
+h3 {
+    font-size: 1.15em;
+}
+
+p {
+    font-size: 0.95em;
+}
+
+.logo {
+    height: 2.5rem;
+    width: auto;
+}
+
+.icon {
+    height: 1.5rem;
+    width: auto;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: auto;
+}
+
+/* SIDEBAR */
+
+aside {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 1.5rem 1rem;
+}
+
+.branding {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navigation {
+    display:flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.navigation li:nth-child(7) {
+    padding-top: 2em;
+}
+
+/* HEADER */
+
+header {
+    grid-area: header;
+    padding: 1rem 2rem;
+}
+
+header .top {
+    display: flex;
+    justify-content: right;
+    margin-bottom: 2rem;
+}
+
+header .bottom {
+    display:flex;
+    justify-content: space-around;
+}
+
+.search-bar,
+.user-profile {
+    display: none;
+}
+
+.account-settings,
+.user-account,
+.trend-item,
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.user-profile img {
+    height: 5rem;
+}
+
+.user-account img {
+    height: 3rem;
+}
+
+.user-account p {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.greetings {
+    font-size: 0.8em;
+}
+
+.username {
+    font-size: 1.8em;
+}
+
+/* MAIN */
+
+main {
+    grid-area: main;
+    display: grid;
+    gap: 2rem;
+    padding: 1.5rem;
+}
+
+.projects {
+    display: grid;
+    grid-auto-rows: 1fr;
+    gap: 2rem;
+}
+
+.project-card,
+.side-content-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    display:flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.project-card {
+    justify-content: space-between;
+    border-left: 8px solid #1E1A22;
+}
+
+.project-card__actions {
+    display: flex;
+    justify-content: right;
+    align-items:flex-end;
+    gap: 1.5rem;
+}
+
+.right-content {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 2rem;
+}
+
+.right-content h3 {
+    font-size: 0.9em;
+}
+
+.right-content p {
+    font-size: 0.8em;
+}
+
+.trend-item img  {
+    height: 3.5rem;
+}
+
+/* MEDIA QUERIES */
+
+@media (min-width: 734px) {
+
+    .container {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            'sidebar header' 
+            'sidebar main ';
+        gap: 0.5rem;
+    }
+
+    .search-bar,
+    .user-profile {
+        display:flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    header .top {
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    header .bottom  {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .container {
+        grid-template-columns: max(250px, 15vw) auto;
+    }
+
+    header {
+        padding: 1.5rem 5rem;
+    }
+
+    aside {
+        padding: 1.5rem 3rem;
+    }
+
+    header .bottom  {
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    main {
+        grid-template-columns: 2.2fr 0.8fr;
+        padding: 1rem 3rem;
+    }
+}
